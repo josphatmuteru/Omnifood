@@ -32,7 +32,9 @@ Paragraph default: 1.6
 - Greys:
 #333
 #555
-#6f6f6f (lighest grey allowed on  #fdf2e9)
+#888
+#6f6f6f (lightest grey allowed on  #fdf2e9)
+#767676 (lightest white allowed on #fff)
 
 --- 05 SHADOWS
  0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
@@ -206,6 +208,10 @@ strong {
 
 .grid--4-cols {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .grid--center-v {
