@@ -3,9 +3,40 @@
 
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header");
+const links = document.querySelectorAll("a:link");
 
 btnNavEl.addEventListener("click", function () {
   headerEl.classList.toggle("nav-open");
+});
+
+////////////////////////////////////////////////////////////
+// Implementing smooth scrolling
+
+links.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const href = link.getAttribute("href");
+
+    // Scroll to top
+    if (href === "#") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    // Scroll to other sections
+    if (href !== "#" && href.startsWith("#")) {
+      const sectionEl = document.querySelector(href);
+
+      sectionEl.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Closing mobile navigation
+    if (link.classList.contains("main-nav-link")) {
+      headerEl.classList.toggle("nav-open");
+    }
+  });
 });
 
 ///////////////////////////////////////////////////////////
